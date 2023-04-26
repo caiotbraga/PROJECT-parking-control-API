@@ -23,11 +23,11 @@ public class ParkingSpotController {
         this.parkingSpotService = parkingSpotService;
     }
 
-    @PostMapping
-    public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){
-        var parkingSpotModel = new ParkingSpotModel();
-        BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
-        parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
+    @PostMapping //método post http
+    public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){ //@RequestBody faz a requisição e o @Valid verifica se através do DTO está tudo de acordo
+        var parkingSpotModel = new ParkingSpotModel(); //não precisa declarar o tipo da váriavel (identifica sozinho o tipo)
+        BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel); //converter o DTO em model
+        parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC"))); //seta a data
         return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotModel));
     }
 }

@@ -13,8 +13,8 @@ public class ParkingSpotService {
         this.parkingSpotRepository = parkingSpotRepository;
     }
 
-    @Transactional
-    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel){
+    @Transactional //Indica que iniciou um processo de transação e antes de efetivar
+    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) { //é possível retornar para o estado passado
         return parkingSpotRepository.save(parkingSpotModel);
     }
 }
