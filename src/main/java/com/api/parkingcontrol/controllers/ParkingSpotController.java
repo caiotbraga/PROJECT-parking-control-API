@@ -25,6 +25,15 @@ public class ParkingSpotController {
 
     @PostMapping //método post http
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){ //@RequestBody faz a requisição e o @Valid verifica se através do DTO está tudo de acordo
+        if(parkingSpotService.existsByLicensePlateCar(parkingSpotDto.getLicensePlateCar())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: License Plate Car is already in use!");
+        }
+        if(parkingSpotService.existsByParkingSpotNumber(parkingSpotDto.getParkingSpotNumber())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot is already in use!");
+        }
+        if(parkingSpotService.existsByApartmentAndBlock(parkingSpotDto.getApartment(), parkingSpotDto.getBlock())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot already registered for this apartment/block!");
+        }
         var parkingSpotModel = new ParkingSpotModel(); //não precisa declarar o tipo da váriavel (identifica sozinho o tipo)
         BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel); //converter o DTO em model
         parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC"))); //seta a data
