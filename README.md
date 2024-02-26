@@ -1,29 +1,26 @@
-# Parking Control API Documentation
+# Parking Control API
 
-This project consists of a parking control API developed in Spring Boot.
+A RESTful API for managing parking spaces in a condominium.
 
-## Controllers
+## Endpoints
 
-### `ParkingSpotController`
+### Save Parking Spot
 
-This controller handles operations related to parking spots.
+Endpoint to save a new parking spot.
 
-#### Routes
+- **URL**
 
-- `POST /parking-spot`: Create a new parking spot.
-- `GET /parking-spot`: Get all parking spots.
-- `GET /parking-spot/{id}`: Get a specific parking spot by ID.
+  `/parking-spot`
 
-### Example Usage
+- **HTTP Method**
 
-#### Creating a New Parking Spot
+  `POST`
 
-```http
-POST /parking-spot
-Content-Type: application/json
+- **Request Body (JSON)**
 
-{
-    "parkingSpotNumber": "A001",
+  ```json
+  {
+    "parkingSpotNumber": "A101",
     "licensePlateCar": "ABC1234",
     "brandCar": "Toyota",
     "modelCar": "Corolla",
@@ -31,10 +28,134 @@ Content-Type: application/json
     "responsibleName": "John Doe",
     "apartment": "101",
     "block": "A"
-}
-```
-### Getting All Parking Spots
+  }
+  ```
 
-```http
-GET /parking-spot
+- **Responses**
 
+  - 201 CREATED: Parking spot saved successfully.
+
+  - 409 CONFLICT: Data conflict. Returns a message indicating the issue.
+
+### Get All Parking Spots
+
+Endpoint to list all parking spots.
+
+- **URL**
+
+  `/parking-spot`
+
+- **HTTP Method**
+
+  `GET`
+
+- **Response**
+
+  - 200 OK: Returns a list of all parking spots.
+
+### Get Parking Spot by ID
+
+Endpoint to get details of a specific parking spot by ID.
+
+- **URL**
+
+  `/parking-spot/{id}`
+
+- **HTTP Method**
+
+  `GET`
+
+- **URL Parameters**
+
+  `id` - Unique ID of the parking spot.
+
+- **Responses**
+
+  - 200 OK: Returns details of the parking spot.
+
+  - 404 NOT FOUND: Parking spot not found.
+
+### Delete Parking Spot by ID
+
+Endpoint to delete a specific parking spot by ID.
+
+- **URL**
+
+  `/parking-spot/{id}`
+
+- **HTTP Method**
+
+  `DELETE`
+
+- **URL Parameters**
+
+  `id` - Unique ID of the parking spot.
+
+- **Responses**
+
+  - 200 OK: Parking spot deleted successfully.
+
+  - 404 NOT FOUND: Parking spot not found.
+
+### Update Parking Spot by ID
+
+Endpoint to update details of a specific parking spot by ID.
+
+- **URL**
+
+  `/parking-spot/{id}`
+
+- **HTTP Method**
+
+  `PUT`
+
+- **URL Parameters**
+
+  `id` - Unique ID of the parking spot.
+
+- **Request Body (JSON)**
+
+  ```json
+  {
+    "parkingSpotNumber": "A102",
+    "licensePlateCar": "XYZ5678",
+    "brandCar": "Honda",
+    "modelCar": "Civic",
+    "colorCar": "Silver",
+    "responsibleName": "Mary Smith",
+    "apartment": "102",
+    "block": "A"
+  }
+  ```
+
+- **Responses**
+
+  - 200 OK: Parking spot updated successfully.
+
+  - 404 NOT FOUND: Parking spot not found.
+
+## Project Structure
+
+- **Controller:** Responsible for handling HTTP requests and calling appropriate services.
+- **DTO:** Data Transfer Objects to map data received in requests.
+- **Models:** Entities representing data in the database.
+- **Repository:** Interfaces for interacting with the database.
+- **Service:** Business logic of the application.
+
+## Technologies Used
+
+- Java
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- PostgreSQL (or another relational database)
+
+## How to Run
+
+1. Clone the repository to your local machine.
+   ```sh
+    -git clone https://github.com/caiotbraga/parking-control-API.git
+   ```
+3. Import the project into your Java IDE.
+4. Configure the PostgreSQL database (or another relational database) in the `application.properties` file.
+5. Run the `ParkingControlApplication` class to start the server.
