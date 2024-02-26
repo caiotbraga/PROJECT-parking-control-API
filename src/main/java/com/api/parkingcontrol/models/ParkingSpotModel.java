@@ -7,16 +7,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_PARKING_SPOT") //nome das tabela que quero q seja gerada na base de dados
+@Table(name = "TB_PARKING_SPOT") //Determines the name of the table that will be created 
 public class ParkingSpotModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id //definir o identificador
-    @GeneratedValue(strategy = GenerationType.AUTO) //pra fazer com que o id seja gerado de forma automatica(sem receber)
-    private UUID id;                                //todos os dados serão enviados menos o id
-    @Column(nullable = false, unique = true, length = 10)//*nullable* serve para mostrar que esse valor não pode ser nulo
-    private String parkingSpotNumber;                    //na base de dados e o *unique* para somente existir um valor com
-    @Column(nullable = false, unique = true, length = 7)   //não pode existir 2 dados de uma mesma vaga
+    @Id //Determines the key
+    @GeneratedValue(strategy = GenerationType.AUTO) //Make the id be generated randomly (UUID)
+    private UUID id;                                
+    @Column(nullable = false, unique = true, length = 10)//nullable makes the field dont be null
+    private String parkingSpotNumber;                    //unique makes the parameter be exclusive
+    @Column(nullable = false, unique = true, length = 7)   
     private String licensePlateCar;
     @Column(nullable = false, length = 70)
     private String brandCar;

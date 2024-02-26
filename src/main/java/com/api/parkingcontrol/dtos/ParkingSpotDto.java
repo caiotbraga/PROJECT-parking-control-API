@@ -5,10 +5,10 @@ import jakarta.validation.constraints.Size;
 
 public class ParkingSpotDto {
 
-    @NotBlank //verifica se o campo não é nulo e se a string não é vazia
+    @NotBlank //check if the fields is empty
     private String parkingSpotNumber;
     @NotBlank
-    @Size(max = 7)
+    @Size(max = 7) //determines the max size of the fields
     private String licensePlateCar;
     @NotBlank
     private String brandCar;
