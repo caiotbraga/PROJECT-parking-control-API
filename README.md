@@ -153,9 +153,13 @@ Endpoint to update details of a specific parking spot by ID.
 ## How to Run
 
 1. Clone the repository to your local machine.
-   ```sh
-    -git clone https://github.com/caiotbraga/parking-control-API.git
-   ```
+```sh
+  -git clone https://github.com/caiotbraga/parking-control-API.git
+```
 3. Import the project into your Java IDE.
 4. Configure the PostgreSQL database (or another relational database) in the `application.properties` file.
 5. Run the `ParkingControlApplication` class to start the server.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
