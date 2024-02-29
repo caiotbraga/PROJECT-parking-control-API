@@ -9,7 +9,6 @@
 <a href="https://www.pgadmin.org/" target="_blank"><img src="https://img.shields.io/badge/pgAdmin-4169E1?logo=postgresql&logoColor=white" alt="pgAdmin Badge"></a>
   <a href="https://www.postman.com/" target="_blank">
   <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" alt="Postman Badge">
-    
 </a>
 </p>
 ## Endpoints
