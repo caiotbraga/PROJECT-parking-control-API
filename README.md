@@ -4,11 +4,12 @@
 
 <h2 align="center">💻Technologies useds</h2>
 <p align="center">
- <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://img.shields.io/badge/Spring_Boot-6DB33F?logo=spring-boot&logoColor=white" alt="Spring Boot Badge"></a>
+ <img href="https://spring.io/projects/spring-boot" alt="Spring Boot 3.0.4" src="https://img.shields.io/badge/Spring%20Boot-3.0.4-green?logo=springboot">
 <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img alt="Java" src="https://img.shields.io/badge/Java-17-red.svg"/></a>
 <a href="https://www.pgadmin.org/" target="_blank"><img src="https://img.shields.io/badge/pgAdmin-4169E1?logo=postgresql&logoColor=white" alt="pgAdmin Badge"></a>
   <a href="https://www.postman.com/" target="_blank">
   <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" alt="Postman Badge">
+    
 </a>
 </p>
 ## Endpoints
